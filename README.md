@@ -1,5 +1,4 @@
-# game_onet_python
-## GAME NỐI THÚ POKEMON
+# GAME NỐI THÚ POKEMON
 ### Lịch sử
 Trò chơi "Nối thú Pokémon" là một trò chơi điện tử giải đố được phát hành bởi hãng game Nhật Bản là Genius Sonority vào ngày 18/02/2015. Trò chơi này được xây dựng trên thế giới nhân vật của hoạt hình Pokémon nổi tiếng. Genius Sonority là một công ty phát triển trò chơi có trụ sở tại Tokyo, Nhật Bản. Họ đã tạo ra nhiều trò chơi dựa trên thương hiệu Pokémon và đã góp phần làm phong phú thêm hệ thống game của thế giới Pokémon. Trò chơi "Nối thú Pokémon" là một trong những sản phẩm của hãng, mang đến trải nghiệm giải đố thú vị và hấp dẫn cho người chơi.
 ### Mô tả
@@ -14,9 +13,11 @@ Trò chơi kết thúc trong các trường hợp sau: hết thời gian quy đ�
 
 Giao diện trò chơi bao gồm một lưới các hình ảnh Pokémon, hiển thị điểm số, nút sắp xếp lại vị trí, nút gợi ý và hiển thị thời gian.
 
-# KẾT QUẢ NGHIÊN CỨU
-## TÌM ĐƯỜNG ĐI ĐỂ NỐI 2 POKEMON BẰNG BFS
-### Ý tưởng
+## KẾT QUẢ NGHIÊN CỨU
+### TÌM ĐƯỜNG ĐI ĐỂ NỐI 2 POKEMON BẰNG BFS
+#### Mục đích
+Khi chọn 2 ô pokemon $a$ và $b$ giống nhau, để xem 2 ô có thể nối được với nhau hay không, cần phải thỏa mãn điều kiện đường gấp khúc khi đi từ a đến b không vượt quá 2 lần. Nói cách khác đường đi từ $a$ đến $b$ không có quá 3 đường thẳng. Ta cần sử dụng thuật toán BFS để tìm xem liệu có tồn tại đường đi từ $a$ đến $b$ thỏa điều kiện không
+#### Ý tưởng
 Gọi $a$ tọa độ $(xStart, yStart)$ là ô bắt đầu, $b$ tọa độ $(xEnd, xEnd)$ là ô kết thúc. 
 
 Gọi $f_{x,y,dir}$ để lưu giá trị đường thẳng của đường nối khi đi từ $a$ đến ô $(x,y)$ với là $dir$. Nếu từ $a$ đến $b$ tồn tại đường đi có dưới $3$ đoạn thẳng thì 2 ô có thể nối với nhau.
@@ -37,7 +38,7 @@ Gọi $f_{x,y,dir}$ để lưu giá trị đường thẳng của đường nố
 
 **Bước 5:** Sau khi kết thúc vòng lặp, duyệt qua 4 hướng di chuyển và kiểm tra xem có đường đi từ Cell sau đến các điểm khác hay không, nếu có thì thực hiện cập nhật đường đi và hình vẽ nối đường đi $(flag=True)$.
 
-### Chương trình tìm đường nối giữa hai pokemon
+#### Chương trình tìm đường nối giữa hai pokemon
 
 <details>
 
@@ -204,3 +205,22 @@ while len(self.delete_queue) > 0:
         self.sound_conected.play()
 ```
 </details>
+
+### Giao diện 
+#### Màn hình trang chủ
+![Trang chủ](./image/trang_chu.png)
+#### Màn hình trong game
+![Game play](./image/in_game.png)
+#### Giao diện để chuyển sang level tiếp theo
+![Next level](./image/next_lv.png)
+#### Màn hình chiến thẳng
+![Win](./image/win.png)
+#### Màn hình thua
+![Lose](./image/lose.png)
+
+### TÀI LIỆU THAM KHẢO
+1. David J.Malan, CS50’s Introduction to Programming with Python, 1/12/2023, https://cs50.harvard.edu/python/2022/
+
+2. Jon Finder, Pygame: A Primer on Game Programming in Python, 1/12/2023, https://realpython.com/pygame-a-primer/
+
+3. Nguyễn Văn Hiếu (2023), Hàng đợi – Queue, 12/12/2023,  https://nguyenvanhieu.vn/hang-doi-queue/
